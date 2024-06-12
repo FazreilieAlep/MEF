@@ -1,0 +1,361 @@
+{
+    "id": 1,
+    "type": {
+        "name": "TV"
+    },
+    "premiered": {
+        "name": "Fall 2023"
+    },
+    "producers": [
+        {
+            "name": "Aniplex"
+        },
+        {
+            "name": "Dentsu"
+        },
+        {
+            "name": "Shogakukan-Shueisha Productions"
+        },
+        {
+            "name": "Nippon Television Network"
+        },
+        {
+            "name": "TOHO animation"
+        },
+        {
+            "name": "Shogakukan"
+        }
+    ],
+    "studios": [
+        {
+            "name": "Madhouse"
+        }
+    ],
+    "genres": [
+        {
+            "name": "Adventure"
+        },
+        {
+            "name": "Drama"
+        },
+        {
+            "name": "Fantasy"
+        }
+    ],
+    "demographics": [
+        {
+            "name": "Shounen"
+        }
+    ]
+}
+
+
+{
+    "id": 1,
+    "type": {
+        "name": "test"
+    },
+    "premiered": {
+        "name": "test"
+    },
+    "producers": [
+        {
+            "name": "test"
+        }
+    ],
+    "studios": [
+        {
+            "name": "test"
+        }
+    ],
+    "genres": [
+        {
+            "name": "test"
+        }
+    ],
+    "demographics": [
+        {
+            "name": "test"
+        }
+    ]
+}
+
+
+
+
+
+{
+        "title": "Fast & Furious",
+        "description": "When a crime brings them back to L.A., fugitive ex-con Dom Toretto reignites his feud with agent Brian O'Conner. But as they are forced to confront a shared enemy, Dom and Brian must give in to an uncertain new trust if they hope to outmaneuver him. And the two men will find the best way to get revenge: push the limits of what's possible behind the wheel.",
+        "tagline": "New model. Original parts.",
+        "year": "2009",
+        "release_date": "2009-04-02",
+        "imdb_id": "tt1013752",
+        "imdb_rating": "6.681",
+        "vote_count": "6958",
+        "popularity": "6.877",
+        "youtube_trailer_key": "7GNg6rAg4hg",
+        "rated": "PG-13",
+        "runtime": 107,
+        "genres": [
+            "Action",
+            "Crime",
+            "Drama",
+            "Thriller",
+            "Adventure"
+        ],
+        "stars": [
+            "Vin Diesel",
+            "Paul Walker",
+            "Michelle Rodriguez",
+            "Jordana Brewster",
+            "John Ortiz",
+            "Laz Alonso",
+            "Sung Kang",
+            "Tego Calderon",
+            "Gal Gadot",
+            "Don Omar",
+            "Jack Conley",
+            "Liza Lapira",
+            "Shea Whigham",
+            "Mirtha Michelle",
+            "Greg Cipes",
+            "Ron Yuan",
+            "Alejandro Pati\u00f1o",
+            "Joe Hursley",
+            "Cesar Garcia",
+            "Brandon T. Jackson",
+            "Mousa Kraish",
+            "Neil Brown Jr.",
+            "Wilmer Calderon",
+            "J. J. Soria",
+            "Don Theerathada",
+            "Robert Miano",
+            "Luis Moncada",
+            "McCaleb Burnett",
+            "Greg Collins",
+            "Monique Gabriela Curnen",
+            "Jimmy Lin",
+            "Roger Fan",
+            "Brendan Wayne",
+            "Breon Ansley",
+            "Assaf Cohen",
+            "Loren Lazerine",
+            "Lou Beatty Jr.",
+            "Julian Starks",
+            "Christopher Gehrman",
+            "Marco Rodr\u00edguez",
+            "Naureen Zaim",
+            "Becky O'Donohue",
+            "Alexandra Castro",
+            "Leigh Folsom Boyd",
+            "Jeff Lam",
+            "Gilbert J. Menchaca",
+            "Frank Miranda",
+            "Kristen DeLuca",
+            "Holly Weber",
+            "Bruna Rubio",
+            "Ashley Green Elizabeth",
+            "Valenzia Algarin",
+            "Liberty Cordova",
+            "Lexi Baxter",
+            "Christian Calloway",
+            "Jerald Garner",
+            "Meredith Giangrande",
+            "Victoria Gracie",
+            "Fatimah Hassan",
+            "Adrienne McQueen",
+            "Christina Neferis",
+            "Lindsay Rosenberg",
+            "Sharon Zeev",
+            "Tego Calder\u00f3n",
+            "Joseph Julian Soria",
+            "Don Thai Theerathada",
+            "Kofi Natei",
+            "Lou Reyes",
+            "Jaimie Sullivan",
+            "Alejandro Patino",
+            "Hazel Calderon",
+            "Jason Castle",
+            "Abraham Chaidez",
+            "Daniel Colletti",
+            "Jason L. Davis",
+            "Barnaby De La Cruz",
+            "Jacob Diamond",
+            "Antonio Echeverria",
+            "Traci Elizabeth",
+            "JR Garcia",
+            "Guillermo Gomez",
+            "Chicago Jones",
+            "Frederick Keeve",
+            "Joyce Kirkconnell",
+            "John Edward Lee",
+            "Sophia Lin",
+            "Devin Lockett",
+            "Mack-b",
+            "Mariano 'Big Dawg' Mendoza",
+            "Mycole Metcalf",
+            "Rana Morrison",
+            "Michael Nance",
+            "Shawn Rader",
+            "Sagine",
+            "Rodney Sciba",
+            "LaToya Tonodeo",
+            "Phil Tyler",
+            "Dennis Winters",
+            "David Zahedian"
+        ],
+        "directors": [
+            "Mic Rodgers",
+            "Terry Leonard",
+            "Valeria Migliassi Collins",
+            "Justin Lin",
+            "Vincent Lascoumes",
+            "Christophe Le Chanu",
+            "Katie Eastridge",
+            "Kate Eastridge"
+        ],
+        "countries": [
+            "Japan",
+            "United States of America",
+            "USA"
+        ],
+        "language": [
+            "English",
+            "Espa\u00f1ol",
+            "en",
+            "English, Spanish"
+        ],
+        "status": "OK",
+        "status_message": "Query was successful"
+    }
+
+
+
+
+{"id":1,
+        "title": "Fast & Furious Test",
+        "description": "test",
+        "tagline": "test",
+        "year": "9999",
+        "release_date": "1111-04-01",
+        "imdb_id": "ttest",
+        "imdb_rating": "6.00",
+        "vote_count": "6666",
+        "popularity": "6.666",
+        "youtube_trailer_key": "test",
+        "rated": "Test",
+        "runtime": 666,
+        "genres": [
+            "Test"
+        ],
+        "stars": [
+            "Test Diesel"
+        ],
+        "countries": [
+            "Test"
+        ],
+        "language": [
+            "Test"
+        ]
+    }
+
+
+
+
+{
+	  "id": 2,
+        "title": "The Heirs",
+        "description": "After a chance encounter in LA, two teens from different social backgrounds reunite at an exclusive high school attended by Korea's \u00fcber rich.",
+        "release_date": "2013-10-09",
+        "imdb_id": "tt3243098",
+        "imdb_rating": "7.82",
+        "vote_count": "562",
+        "popularity": "66.672",
+        "youtube_trailer_key": "",
+        "rated": "TV-14",
+        "runtime": 59,
+        "year_started": 2013,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Romance"
+        ],
+        "stars": [
+            "Park Shin-hye",
+            "Lee Min-ho",
+            "Kim Woo-bin",
+            "Kim Ji-won",
+            "Kang Min-hyuk",
+            "Choi Jin-hyuk",
+            "Krystal Jung",
+            "Kang Ha-neul",
+            "Park Hyung-sik",
+            "Choi Tae-hwan",
+            "Lee Min-ho\u00a0",
+            "Im Joo-eun"
+        ],
+        "creators": [
+            "Kim Eun-sook",
+            "Sung Chul Bu",
+            "Shin-Hyo Kang"
+        ],
+        "countries": [
+            "KR",
+            "Kr"
+        ],
+        "language": [
+            "en",
+            "ko",
+            "Korean, English"
+        ],
+        "production_companies": [
+            "Hwa&Dam Pictures",
+            "Seoul Broadcasting System",
+            "Hwa and Dam Pictures",
+            "Seoul Broadcasting System (SBS)"
+        ],
+        "networks": [
+            "SBS",
+            "SBS (KR)"
+        ],
+        "status": "OK",
+        "status_message": "Query was successful"
+    }
+
+{
+	  "id": 2,
+        "title": "The Inheiritors",
+        "description": "test desc",
+        "release_date": "2000-12-12",
+        "imdb_id": "ttest",
+        "imdb_rating": "6.66",
+        "vote_count": "6666",
+        "popularity": "66.666",
+        "youtube_trailer_key": "test",
+        "rated": "test",
+        "runtime": 200,
+        "year_started": 2000,
+        "genres": [
+            "test"
+        ],
+        "stars": [
+            "Park Shin-hye"
+        ],
+        "creators": [
+            "Kim Eun-sook"
+        ],
+        "countries": [
+            "Test",
+        ],
+        "language": [
+            "test"
+        ],
+        "production_companies": [
+            "Gohan"
+        ],
+        "networks": [
+            "Test"
+        ]
+    }
+
