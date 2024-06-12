@@ -1,1 +1,2 @@
 DATABASE_URL = 'postgresql+psycopg2://postgres:123456789Abc@localhost:5432/MEF_DB' # change here to use other database url
+# DATABASE_URL = 'sqlite:///./mef.db' # uncomment this for testing with local sqlite db, ensure sqlite is installed, might need to add extra parameters in settings.py (refer https://fastapi.tiangolo.com/tutorial/sql-databases/#create-the-sqlalchemy-parts)
