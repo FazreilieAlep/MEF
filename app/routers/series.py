@@ -34,7 +34,7 @@ def get_series_list(
 ):
     return crud.get_series_list(db, limit, skip, titles, genres, stars, creators, countries, languages, productions, networks)
 
-@router.get("/{item}/{item_id}", response_model=List[schema.SeriesListResponse])
+@router.get("/get_by/{item}/{item_id}", response_model=List[schema.SeriesListResponse])
 def get_series_by_item_id(
     item: str,
     item_id: int,
@@ -48,7 +48,7 @@ def get_series_by_item_id(
     
     return crud.get_series_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/{item}", response_model=List[ItemListResponse])
+@router.get("/get_by/{item}", response_model=List[ItemListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -61,7 +61,7 @@ def get_item_list(
     
     return crud.get_item_list(db, item, limit, skip)
 
-@router.post("/{item}", dependencies=[Depends(permission_required("series:create"))])
+@router.post("/create/{item}", dependencies=[Depends(permission_required("series:create"))])
 async def create_item(item: str, new_item: ItemCreate, db: Session = Depends(get_db)):
     try:
         """
@@ -98,7 +98,7 @@ async def create_item(item: str, new_item: ItemCreate, db: Session = Depends(get
         logging.error(f"Error creating item: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while creating the item.")
 
-@router.post("/", response_model=schema.Series, dependencies=[Depends(permission_required("series:create"))])
+@router.post("/create", response_model=schema.Series, dependencies=[Depends(permission_required("series:create"))])
 async def create_series(series: schema.SeriesCreate, db: Session = Depends(get_db)):
     try:
         db_series = crud.get_series_by_title(db, title=series.title)
@@ -109,7 +109,7 @@ async def create_series(series: schema.SeriesCreate, db: Session = Depends(get_d
         logging.error(f"Error creating series: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while creating the series.")
 
-@router.post("/multiple", response_model=List[schema.Series], dependencies=[Depends(permission_required("series:create"))])
+@router.post("/create_bulk", response_model=List[schema.Series], dependencies=[Depends(permission_required("series:create"))])
 async def create_serieses(serieses: List[schema.SeriesCreate], db: Session = Depends(get_db)):
     created_serieses = []
     for series in serieses:
@@ -117,6 +117,7 @@ async def create_serieses(serieses: List[schema.SeriesCreate], db: Session = Dep
             db_series = crud.get_series_by_title(db, title=series.title)
             if db_series:
                 logging.warning(f"Anime '{series.title}' already registered.")
+                created_serieses.append(f"Anime '{series.title}' already registered.")
             else:
                 created_series = crud.create_series(db=db, series=series)
                 created_serieses.append(created_series)

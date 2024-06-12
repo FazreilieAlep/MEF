@@ -2290,68 +2290,7 @@
                 "url": "https://myanimelist.net/anime/genre/42/Seinen"
             }
         ]
-    },
-    {
-        "title_ov": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen",
-        "title_en": "Kaguya-sama: Love is War",
-        "synopsis": "At the renowned Shuchiin Academy, Miyuki Shirogane and Kaguya Shinomiya are the student body's top representatives. Ranked the top student in the nation and respected by peers and mentors alike, Miyuki serves as the student council president. Alongside him, the vice president Kaguya\u2014eldest daughter of the wealthy Shinomiya family\u2014excels in every field imaginable. They are the envy of the entire student body, regarded as the perfect couple.\n\r\nHowever, despite both having already developed feelings for the other, neither are willing to admit them. The first to confess loses, will be looked down upon, and will be considered the lesser. With their honor and pride at stake, Miyuki and Kaguya are both equally determined to be the one to emerge victorious on the battlefield of love!\n\r\n[Written by MAL Rewrite]",
-        "picture_url": "https://cdn.myanimelist.net/images/anime/1295/106551.jpg",
-        "alternative_titles": {
-            "synonym": "Kaguya Wants to be Confessed To: The Geniuses' War of Love and Brains",
-            "japanese": "\u304b\u3050\u3084\u69d8\u306f\u544a\u3089\u305b\u305f\u3044\uff5e\u5929\u624d\u305f\u3061\u306e\u604b\u611b\u982d\u8133\u6226\uff5e"
-        },
-        "information": {
-            "aired": "Jan 12, 2019 to Mar 30, 2019",
-            "episode": 12,
-            "broadcast": "Saturdays at 23:30 (JST)",
-            "status": {
-                "name": "Finished Airing"
-            }
-        },
-        "type": {
-            "name": "TV",
-            "url": "https://myanimelist.nethttps://myanimelist.net/topanime.php?type=tv"
-        },
-        "premiered": {
-            "name": "Winter 2019",
-            "url": "https://myanimelist.nethttps://myanimelist.net/anime/season/2019/winter"
-        },
-        "producers": [
-            {
-                "name": "Aniplex",
-                "url": "https://myanimelist.net/anime/producer/17/Aniplex"
-            },
-            {
-                "name": "Mainichi Broadcasting System",
-                "url": "https://myanimelist.net/anime/producer/143/Mainichi_Broadcasting_System"
-            },
-            {
-                "name": "Magic Capsule",
-                "url": "https://myanimelist.net/anime/producer/306/Magic_Capsule"
-            },
-            {
-                "name": "Shueisha",
-                "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
-            },
-            {
-                "name": "JR East Marketing & Communications",
-                "url": "https://myanimelist.net/anime/producer/1501/JR_East_Marketing___Communications"
-            }
-        ],
-        "studios": [
-            {
-                "name": "A-1 Pictures",
-                "url": "https://myanimelist.net/anime/producer/56/A-1_Pictures"
-            }
-        ],
-        "genres": [],
-        "demographics": [
-            {
-                "name": "Seinen",
-                "url": "https://myanimelist.net/anime/genre/42/Seinen"
-            }
-        ]
-    },
+    },,
     {
         "title_ov": "Kaguya-sama wa Kokurasetai: First Kiss wa Owaranai",
         "title_en": "Kaguya-sama: Love is War - The First Kiss That Never Ends",

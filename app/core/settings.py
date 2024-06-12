@@ -1,0 +1,1 @@
+DATABASE_URL = 'postgresql+psycopg2://postgres:123456789Abc@localhost:5432/MEF_DB' # change here to use other database url

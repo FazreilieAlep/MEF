@@ -5,12 +5,11 @@ from app.models.medias.host import Host
 from ..models.medias.movies.movie import schema, crud
 from ..models.medias import crud as media_crud
 from ..models.medias.schema import ItemListResponse, ItemCreate
-from typing import Optional
+from typing import Optional, List
 from ..core.dependencies.db_dependencies import get_db
 from ..core.dependencies.perm_dependencies import permission_required
 
 import logging
-from typing import List
 
 router = APIRouter(
     prefix="/movie",
@@ -32,7 +31,7 @@ def get_movie_list(
 ):
     return crud.get_movie_list(db, limit, skip, titles, genres, stars, directors, countries, languages)
 
-@router.get("/{item}/{item_id}", response_model=List[schema.MovieListResponse])
+@router.get("/get_by/{item}/{item_id}", response_model=List[schema.MovieListResponse])
 def get_movie_by_item_id(
     item: str,
     item_id: int,
@@ -52,7 +51,7 @@ def get_movie_by_item_id(
     
     return crud.get_movie_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/{item}", response_model=List[ItemListResponse])
+@router.get("/get_by/{item}", response_model=List[ItemListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -70,7 +69,7 @@ def get_item_list(
     
     return crud.get_item_list(db, item, limit, skip)
 
-@router.post("/{item}", dependencies=[Depends(permission_required("movie:create"))])
+@router.post("/create/{item}", dependencies=[Depends(permission_required("movie:create"))])
 async def create_item(item: str, new_item: ItemCreate, db: Session = Depends(get_db)):
     try:
         """
@@ -107,7 +106,7 @@ async def create_item(item: str, new_item: ItemCreate, db: Session = Depends(get
         logging.error(f"Error creating item: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while creating the item.")
 
-@router.post("/", response_model=schema.Movie, dependencies=[Depends(permission_required("movie:create"))])
+@router.post("/create", response_model=schema.Movie, dependencies=[Depends(permission_required("movie:create"))])
 async def create_movie(movie: schema.MovieCreate, db: Session = Depends(get_db)):
     try:
         db_movie = crud.get_movie_by_title(db, title=movie.title)
@@ -118,7 +117,7 @@ async def create_movie(movie: schema.MovieCreate, db: Session = Depends(get_db))
         logging.error(f"Error creating movie: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while creating the movie.")
 
-@router.post("/multiple", response_model=List[schema.Movie], dependencies=[Depends(permission_required("movie:create"))])
+@router.post("/create_bulk", response_model=List[schema.Movie], dependencies=[Depends(permission_required("movie:create"))])
 async def create_movies(movies: List[schema.MovieCreate], db: Session = Depends(get_db)):
     created_movies = []
     for movie in movies:
@@ -126,6 +125,7 @@ async def create_movies(movies: List[schema.MovieCreate], db: Session = Depends(
             db_movie = crud.get_movie_by_title(db, title=movie.title)
             if db_movie:
                 logging.warning(f"movie '{movie.title}' already registered.")
+                created_movies.append(f"movie '{movie.title}' already registered.")
             else:
                 created_movie = crud.create_movie(db=db, movie=movie)
                 created_movies.append(created_movie)

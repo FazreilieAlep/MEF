@@ -7,6 +7,12 @@ from sqlalchemy import pool
 
 from alembic import context
 
+# Update sys.path to include the root of the project
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+# Now you can do the import
+from app.core.settings import DATABASE_URL
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config

@@ -5,12 +5,11 @@ from sqlalchemy.orm import Session
 from ..models.medias.animes.anime import schema, crud
 from ..models.medias import crud as media_crud
 from ..models.medias.schema import ItemListResponse, ItemCreate
-from typing import Optional
+from typing import Optional, List
 from ..core.dependencies.db_dependencies import get_db
 from ..core.dependencies.perm_dependencies import permission_required
 
 import logging
-from typing import List
 
 router = APIRouter(
     prefix="/anime",
@@ -36,7 +35,7 @@ def get_anime_list(
     return crud.get_anime_list(db, limit, skip, titles, producers, licensors, studios, genres, types, premiers)
 
 
-@router.get("/{item}/{item_id}", response_model=List[schema.AnimeListResponse])
+@router.get("/get_by/{item}/{item_id}", response_model=List[schema.AnimeListResponse])
 def get_anime_by_item_id(
     item: str,
     item_id: int,
@@ -56,7 +55,7 @@ def get_anime_by_item_id(
     
     return crud.get_anime_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/{item}", response_model=List[ItemListResponse])
+@router.get("/get_by/{item}", response_model=List[ItemListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -74,7 +73,7 @@ def get_item_list(
     
     return crud.get_item_list(db, item, limit, skip)
 
-@router.post("/{item}", dependencies=[Depends(permission_required("anime:create"))])
+@router.post("/create/{item}", dependencies=[Depends(permission_required("anime:create"))])
 async def create_item(item: str, new_item: ItemCreate, db: Session = Depends(get_db)):
     try:
         """
@@ -111,10 +110,10 @@ async def create_item(item: str, new_item: ItemCreate, db: Session = Depends(get
         logging.error(f"Error creating item: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while creating the item.")
 
-@router.post("/", response_model=schema.Anime, dependencies=[Depends(permission_required("anime:create"))])
+@router.post("/create", response_model=schema.Anime, dependencies=[Depends(permission_required("anime:create"))])
 async def create_anime(anime: schema.AnimeCreate, db: Session = Depends(get_db)):
     try:
-        db_anime = crud.get_anime_by_title(db, title=anime.title_en)
+        db_anime = crud.get_anime_by_title(db, title=anime.title_ov)
         if db_anime:
             raise HTTPException(status_code=400, detail="Anime already registered")
         return crud.create_anime(db=db, anime=anime)
@@ -122,7 +121,7 @@ async def create_anime(anime: schema.AnimeCreate, db: Session = Depends(get_db))
         logging.error(f"Error creating anime: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while creating the anime.")
 
-@router.post("/multiple", response_model=List[schema.Anime], dependencies=[Depends(permission_required("anime:create"))])
+@router.post("/create_bulk", response_model=List[schema.Anime], dependencies=[Depends(permission_required("anime:create"))])
 async def create_animes(animes: List[schema.AnimeCreate], db: Session = Depends(get_db)):
     created_animes = []
     for anime in animes:
@@ -130,6 +129,7 @@ async def create_animes(animes: List[schema.AnimeCreate], db: Session = Depends(
             db_anime = crud.get_anime_by_title(db, title=anime.title_ov)
             if db_anime:
                 logging.warning(f"Anime '{anime.title_ov}' already registered.")
+                created_animes.append(f"Anime '{anime.title_ov}' already registered.")
             else:
                 created_anime = crud.create_anime(db=db, anime=anime)
                 created_animes.append(created_anime)
@@ -148,7 +148,7 @@ def update_anime(anime: schema.AnimeUpdate, db: Session = Depends(get_db)):
         logging.error(f"Error updating anime: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while updating the anime.")    
 
-@router.put("/update/multiple", response_model=List[schema.Anime], dependencies=[Depends(permission_required("anime:update"))])
+@router.put("/update_bulk", response_model=List[schema.Anime], dependencies=[Depends(permission_required("anime:update"))])
 async def update_animes(animes: List[schema.AnimeUpdate], db: Session = Depends(get_db)):
     updated_animes = []
     for anime in animes:
