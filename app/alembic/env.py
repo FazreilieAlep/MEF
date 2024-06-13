@@ -52,7 +52,7 @@ recursive_import(app.models, exclude_files=['crud', 'schema', '__init__', 'assoc
 target_metadata = Base.metadata
 
 # Database URL
-config.set_main_option('sqlalchemy.url', 'postgresql+psycopg2://postgres:123456789Abc@localhost:5432/MEF_DB')
+config.set_main_option('sqlalchemy.url', DATABASE_URL)
 
 
 # alembic utils
