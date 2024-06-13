@@ -1,4 +1,5 @@
-from turtle import title
+import os
+import uvicorn
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
@@ -87,3 +88,7 @@ app.include_router(users.router)
 app.include_router(anime.router)
 app.include_router(movies.router)
 app.include_router(series.router)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
