@@ -61,3 +61,6 @@ The `app/models` folder or package is reserved to hold SQLAlchemy models. To add
 - `association.py` : store association tables for many-to-many relationship tables
 - `__init__` : python package declaration
 
+
+Database hosting platform : [Render.com](https://render.com/)
+Backend/FastAPI hosting platform : [Platform.sh](https://platform.sh/)
