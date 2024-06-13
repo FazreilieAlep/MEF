@@ -55,7 +55,7 @@ def get_anime_by_item_id(
     
     return crud.get_anime_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/get_by/{item}", response_model=List[ItemListResponse])
+@router.get("/get/{item}", response_model=List[ItemListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -196,3 +196,5 @@ def delete_status(
     return crud.delete_status(db, id)
 
 # KIV multiple delete
+
+# KIV: /update/{item}/{item_id}

@@ -51,7 +51,7 @@ def get_movie_by_item_id(
     
     return crud.get_movie_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/get_by/{item}", response_model=List[ItemListResponse])
+@router.get("/get/{item}", response_model=List[ItemListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -172,3 +172,5 @@ async def update_movies(movies: List[schema.MovieUpdate], db: Session = Depends(
         except Exception as e:
             logging.error(f"Error creating movie '{movie.title}': {e}")
     return updated_movies
+
+# KIV: /update/{item}/{item_id}

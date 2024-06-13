@@ -48,7 +48,7 @@ def get_series_by_item_id(
     
     return crud.get_series_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/get_by/{item}", response_model=List[ItemListResponse])
+@router.get("/get/{item}", response_model=List[ItemListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -164,3 +164,5 @@ async def update_seriess(seriess: List[schema.SeriesUpdate], db: Session = Depen
         except Exception as e:
             logging.error(f"Error creating series '{series.title}': {e}")
     return updated_seriess
+
+# KIV: /update/{item}/{item_id}
