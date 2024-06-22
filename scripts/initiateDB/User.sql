@@ -1,16 +1,16 @@
 
-INSERT INTO users(
+INSERT INTO public.users(
 	id, username, email, password, disabled)
 	VALUES (1, 'superadmin', 'superadmin@admin.com', 'fakehashed123', False),
 	(2, 'admin', 'admin@admin.com', 'fakehashed123', False),
 	(3, 'test_user', 'test@test.com', 'fakehashed123', False);
 
-INSERT INTO roles(
+INSERT INTO public.roles(
 	id, name)
 	VALUES (1, 'superadmin'), (2, 'admin'), (3, 'user');
 
 
-INSERT INTO permissions(
+INSERT INTO public.permissions(
 	id, name, details, "parentPermissionID")
 	VALUES 
 	(1, 'user', '{"permission_details": "CRUD collection of User"}', NULL),
@@ -37,7 +37,7 @@ INSERT INTO permissions(
 	(19, 'anime:update', '{"permission_details": "update operation of Anime"}', 16),
 	(20, 'anime:delete', '{"permission_details": "delete operation of Anime"}', 16);
 
-INSERT INTO role_permissions(
+INSERT INTO public.role_permissions(
 	role_id, permission_id)
 	VALUES 
 	(1, 1), (1, 2),	(1, 3),	(1, 4),	(1, 5),	(1, 6),	(1, 7),	(1, 8),	(1, 9),	(1, 10), 
@@ -49,10 +49,10 @@ INSERT INTO role_permissions(
 	(3, 6),	(3, 8), 
 	(3, 11), (3, 13), (3, 16), (3, 18);
 
-INSERT INTO user_roles(
+INSERT INTO public.user_roles(
 	user_id, role_id)
 	VALUES (1, 1), (2, 2), (3, 3);
 
-INSERT INTO user_permissions(
+INSERT INTO public.user_permissions(
 	user_id, permission_id)
 	VALUES (2, 1), (2, 3);
