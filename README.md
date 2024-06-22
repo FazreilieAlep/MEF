@@ -1,6 +1,7 @@
 # Media ERM FastAPI
 
 Media ERM FastAPI (MEF API) is a robust API designed with [FastAPI](https://fastapi.tiangolo.com/) and [PostgreSQL](https://www.postgresql.org/) to efficiently manage media or content data such as movies, series, and anime details. It is specifically tailored to track the media content you have personally watched.
+As FastAPI framework comes with it own prebuilt documentation system, the API created is automatically documented on `/docs` path. Click [here](https://mef-3dpm.onrender.com/docs) to see available API paths for MEF
 
 ## Features
 
@@ -62,5 +63,4 @@ The `app/models` folder or package is reserved to hold SQLAlchemy models. To add
 - `__init__` : python package declaration
 
 
-Database hosting platform : [Render.com](https://render.com/)
-Backend/FastAPI hosting platform : [Platform.sh](https://platform.sh/)
+Backend/FastAPI and Database hosting platform : [Render.com](https://render.com/)
