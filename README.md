@@ -63,4 +63,6 @@ The `app/models` folder or package is reserved to hold SQLAlchemy models. To add
 - `__init__` : python package declaration
 
 
-Backend/FastAPI and Database hosting platform : [Render.com](https://render.com/)
+Backend/FastAPI and Database hosting platform : [Render.com](https://render.com/) !Deprecated, Neon Console
+
+
