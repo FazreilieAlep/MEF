@@ -73,7 +73,7 @@ def get_item_list(
     db: Session = Depends(get_db)
 ):
     """
-    Get item list with the specified item
+    Get anime by id or the list of item type below
     
     **item**: item name -> genre OR studio OR producer OR licensor OR type OR premier
     """
