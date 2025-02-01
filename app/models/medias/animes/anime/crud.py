@@ -202,6 +202,7 @@ def create_anime(db: Session, anime=schema.AnimeCreate):
             picture_url=str(anime.picture_url),
             type_id=type.id if type else None,
             premier_id=premiered.id if premiered else None,
+            myanimelist_id=anime.myanimelist_id if anime.myanimelist_id else None
         )
   
         # Add to session
