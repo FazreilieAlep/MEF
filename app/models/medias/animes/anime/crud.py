@@ -1,7 +1,7 @@
 from http.client import HTTPException
 from fastapi import Query
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
+from sqlalchemy import or_, func
 import logging
 
 # main object import
