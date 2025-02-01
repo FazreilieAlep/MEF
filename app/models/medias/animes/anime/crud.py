@@ -1,6 +1,7 @@
 from http.client import HTTPException
 from fastapi import Query
 from sqlalchemy.orm import Session
+from sqlalchemy.sql import func
 from sqlalchemy import or_
 import logging
 
@@ -38,6 +39,21 @@ logging.basicConfig(level=logging.INFO)
 
 def get_anime_by_title(db: Session, title: str):
     return db.query(Anime).filter(Anime.title_ov == title.lower()).first()
+
+def get_anime_by_id(db: Session, id: str):
+    try:
+        anime_id = int(id)
+    except ValueError:
+        raise ValueError("Invalid ID format. ID must be an integer.")
+    
+    return db.query(Anime).filter(Anime.id == anime_id).first()
+
+def get_anime_random(db: Session, limit: int, page: int) -> List[Anime]:
+    total_count = db.query(func.count(Anime.id)).scalar()
+    if total_count == 0:
+        return []
+    offset = (page - 1) * limit
+    return db.query(Anime).order_by(func.random()).offset(offset).limit(limit).all()
 
 def get_anime_list(
     db: Session, 

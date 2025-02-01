@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from ..models.medias.animes.anime import schema, crud
 from ..models.medias import crud as media_crud
 from ..models.medias.schema import ItemListResponse, ItemCreate
-from typing import Optional, List
+from typing import Optional, List, Union
 from ..core.dependencies.db_dependencies import get_db
 from ..core.dependencies.perm_dependencies import permission_required
 
@@ -34,6 +34,16 @@ def get_anime_list(
 ):
     return crud.get_anime_list(db, limit, skip, titles, producers, licensors, studios, genres, types, premiers)
 
+@router.get("/get_random", response_model=List[schema.AnimeListResponse])
+def get_anime_random(
+    limit: int = Query(10, ge=1),
+    page: int = Query(1, ge=1),
+    db: Session = Depends(get_db)
+):
+    """
+    Get anime random anime list 
+    """
+    return crud.get_anime_random(db, limit, page)
 
 @router.get("/get_by/{item}/{item_id}", response_model=List[schema.AnimeListResponse])
 def get_anime_by_item_id(
@@ -55,7 +65,7 @@ def get_anime_by_item_id(
     
     return crud.get_anime_by_item_id(db, item, item_id, limit, skip)
 
-@router.get("/get/{item}", response_model=List[ItemListResponse])
+@router.get("/get/{item}", response_model=Union[List[ItemListResponse], schema.AnimeListResponse])
 def get_item_list(
     item: str,
     limit: int = Query(10, ge=1),
@@ -69,7 +79,11 @@ def get_item_list(
     """
     valid_items = ['genre', 'studio', 'producer', 'licensor', 'type', 'premier']
     if item not in valid_items:
-        raise HTTPException(status_code=400, detail=f"Invalid item. Must be one of {valid_items}")
+        try:
+            anime_id = int(item)
+            return crud.get_anime_by_id(db, anime_id)
+        except ValueError:
+            raise HTTPException(status_code=400, detail=f"Invalid item. Must be one of {valid_items} or a valid anime ID")
     
     return crud.get_item_list(db, item, limit, skip)
 
