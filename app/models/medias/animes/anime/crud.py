@@ -1,7 +1,7 @@
 from http.client import HTTPException
 from fastapi import Query
 from sqlalchemy.orm import Session
-from sqlalchemy import or_, func
+from sqlalchemy import or_
 import logging
 
 # main object import
@@ -349,16 +349,6 @@ def delete_anime(db: Session, anime_id: int):
     db.delete(anime)
     db.commit()
     return {"detail": f"{temp_name} with ID {anime_id} deleted successfully"}
-
-
-def get_random_anime(db: Session, limit: int, skip: int) -> List[Anime]:
-    total_count = db.query(func.count(Anime.id)).scalar()
-    if total_count == 0:
-        return []
-
-    random_offset = skip % total_count
-    return db.query(Anime).order_by(func.random()).offset(random_offset).limit(limit).all()
-
 
 # Original create_anime function code
 # def create_anime(db: Session, anime=schema.AnimeCreate):
