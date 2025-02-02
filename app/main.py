@@ -1,6 +1,7 @@
 import os
 import uvicorn
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
 from .routers import users, anime, movies, series
@@ -59,6 +60,15 @@ app = FastAPI(
         "url": "https://www.linkedin.com/in/fazreilie-alep1",
         "email": "fazreilie122@gmail.com",
     })
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust this to your needs
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
